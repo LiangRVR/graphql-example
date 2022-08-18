@@ -3,11 +3,13 @@ products = [
     id: "blueShoe",
     description: "Blue Shoe",
     price: 25.3,
+    reviews: [],
   },
   {
     id: "redJeans",
     description: "Red Jeans",
     price: 42.1,
+    reviews: [],
   },
 ];
 
@@ -40,9 +42,25 @@ const addNewProduct = (id, description, price) => {
   return newProduct;
 };
 
+const addProductReview = (id, rating, comment) => {
+  const newReview = {
+    rating,
+    comment,
+  };
+
+  for (product of products) {
+    if (product.id === id) {
+      product.reviews.push(newReview);
+      return newReview;
+    }
+  }
+  return null;
+};
+
 module.exports = {
   getAllProducts,
   getProductsByPrice,
   getProductById,
   addNewProduct,
+  addProductReview,
 };
