@@ -27,8 +27,22 @@ const getProductById = (id) => {
   });
 };
 
+const addNewProduct = (id, description, price) => {
+  const newProduct = {
+    id,
+    description,
+    price,
+    reviews: [],
+  };
+
+  products.push(newProduct);
+
+  return newProduct;
+};
+
 module.exports = {
   getAllProducts,
   getProductsByPrice,
   getProductById,
+  addNewProduct,
 };
